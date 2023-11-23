@@ -15,6 +15,20 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
               <Route path="/" element={<App />}>
                   <Route path="expenses" element={<Expenses />} />
                   <Route path="invoices" element={<Invoices />}>
+                      {/*
+                      索引路由
+                      由index代替path
+                      索引路由是父路由的默认子路由。
+                      当父路由匹配但其他子路由都不匹配时，索引路由匹配。
+                      */}
+                      <Route
+                          index
+                          element={
+                              <main style={{ padding: "1rem" }}>
+                                  <p>Select an invoice</p>
+                              </main>
+                          }
+                      />
                       <Route path=":invoiceId" element={<Invoice />} />
                   </Route>
                   <Route
@@ -27,6 +41,6 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
                   />
               </Route>
           </Routes>
-      </BrowserRouter>,
+      </BrowserRouter>
   </>,
 )
